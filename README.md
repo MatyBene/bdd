@@ -90,3 +90,10 @@ MySql no comprueba de una manera estricta si una fecha es valida o no.
 - TEXT: Determina un dato de tipo texto sin limite de caracteres.
 
 ## Constrains
+
+Nos permiten generar un esquema de informacion mucho mas estable y funcional a los ojos de nuestra aplicacion.
+
+- UNIQUE KEYS: Solo permite valores unicos para uno (o multiples) campos.
+- NULL / NOT NULL: "NULL" significa que el valor para ese campo no existe o no se conoce. "NULL" no es vacio '' ni cero.
+- DEFAULT: Se usa para definir un valor por defecto para una columna. Este valor se le va a agregar a cada registro nuevo siempre y cuando no se especifique otro valor que lo sobreescriba.
+- AUTO_INCREMENT: Genera un numero unico y lo incrementa automaticamente con cada nuevo registro en la tabla. Se suele usar a menudo para el campo ID.
