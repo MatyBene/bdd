@@ -97,3 +97,71 @@ Nos permiten generar un esquema de informacion mucho mas estable y funcional a l
 - NULL / NOT NULL: "NULL" significa que el valor para ese campo no existe o no se conoce. "NULL" no es vacio '' ni cero.
 - DEFAULT: Se usa para definir un valor por defecto para una columna. Este valor se le va a agregar a cada registro nuevo siempre y cuando no se especifique otro valor que lo sobreescriba.
 - AUTO_INCREMENT: Genera un numero unico y lo incrementa automaticamente con cada nuevo registro en la tabla. Se suele usar a menudo para el campo ID.
+
+## Create, drop y alter
+
+### Create
+
+Con CREATE TABLE podemos crear una tabla desde cero, junto con sus columnas, sus tipos y sus constrains.
+
+```SQL
+CREATE TABLA nombre-de-la-tabla(
+  nombre-columna-1 TIPO-DATO CONSTRAINT,
+  nombre-columna-2 TIPO-DATO CONSTRAINT,
+)
+```
+
+- foreign key:
+
+Cuando creemos una columna que contenga una id foranea, sera necesario usar la sentencia FOREIGN KEY para aclarar a que tabla y a que columna hace referencia aquel dato. La tabla "clientes" debera existir antes de correr esta sentencia para crear la tabla "ordenes".
+
+```SQL
+CREATE TABLE ordenes(
+  orden_id INT NOT NULL,
+  orden_numero INT NOT NULL,
+  cliente_id INT,
+  PRIMARY KEY (orden_id),
+  FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+```
+
+### Drop
+
+DROP TABLE borrara la tabla que le especifiquemos en la sentencia.
+
+```SQL
+DROP TABLE IF EXIST movies;
+```
+
+### Alter
+
+ALTER TABLE permite alterar una tabla ya existente y va a operar con tres comandos:
+
+- ADD: Para agregar una columna. Ejemplo, agrega la columna rating, aclarando tipo de dato y constrint.
+
+```SQL
+ALTER TABLE movies
+ADD rating DECIMAL(3,1) UNSIGNED NOT NULL;
+```
+
+- MODIFY: Para modificar una columna. Ejemplo, modifica el decimal de la columna rating. Aunque el resto de las configuraciones de la tabla no se modifiquen, es necesario escribirlas en la sentencia.
+
+```SQL
+ALTER TABLE movies
+MODIFY rating DECIMAL(4,1) UNSIGNED NOT NULL;
+```
+
+- DROP: Para borrar una columna. Ejemplo, borra la columna rating.
+
+```SQL
+ALTER TABLE movies
+DROP rating;
+```
+
+## Foreign keys
+
+Es un constraint que permite que una columna de una tabla guarde como valor un dato particular que referencia a otra tabla, y que sirve para relacionar estas dos tablas entre si.
+
+Ejemplo:
+
+![foreign key](img/ej-fk.png)
