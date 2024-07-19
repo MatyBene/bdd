@@ -165,3 +165,75 @@ Es un constraint que permite que una columna de una tabla guarde como valor un d
 Ejemplo:
 
 ![foreign key](img/ej-fk.png)
+
+# Manipulacion y consulta de datos
+
+## Insert, update, delete
+
+### Insert
+
+Existen dos formas de agregar datos en una tabla:
+
+- Insertando datos en todas las columnas
+- Insertando datos en las columnas que especificamos
+
+#### Todas las columnas
+
+El orden en el que insertemos los valores, debera ser el mismo orden que tengan asignadas las columnas en la tabla.
+
+```SQL
+INSERT INTO table_name(c1, c2, ...)
+VALUES(v1, v2, ...)
+```
+
+```SQL
+INSERT INTO usuarios(id, nombre, apellido)
+VALUES(DEFAULT, 'Max', 'Power');
+```
+
+```SQL
+INSERT INTO usuarios
+VALUES(DEFAULT, 'Max', 'Power')
+```
+
+#### Columnas especificas
+
+Aclarar la tabla y luego escribimos el nombre de la o las columnas entre parentesis.
+
+```SQL
+INSERT INTO usuarios(nombre)
+VALUES('Santi')
+```
+
+```SQL
+INSERT INTO peiculas(duracion, titulo)
+VALUES(112, 'Kill Bill')
+```
+
+### Update
+
+Modificara los registros existentes de una tabla. Utilizar WHERE para agregar la condicion de cuales son las filas que queremos actualizar.
+
+```SQL
+UPDATE nombre_tabla
+SET c1 = v1, c2 = v2, ...
+WHERE condicion;
+```
+
+```SQL
+UPDATE usuarios
+SET nombre = 'Juan', apellido = 'Doe'
+WHERE id = 1;
+```
+
+### Delete
+
+Se puede borrar informacion de una tabla. Utilizar WHERE para aclarar la condicion. Si no se escribe WHERE, se borra toda la tabla.
+
+```SQL
+DELETE FROM nombre_tabla WHERE condicion;
+```
+
+```SQL
+DELETE FROM usuarios WHERE usuario_id = 4;
+```
