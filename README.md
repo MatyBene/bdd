@@ -253,3 +253,73 @@ Ejemplo: Para conocer los titulos y ratings de las peliculas guardadas en la tab
 SELECT titulo, rating
 FROM peliculas
 ```
+
+## Where y order by
+
+### Where
+
+Condiciona y filtra las consultas SELECT que se realizan a una base de datos.
+
+```SQL
+SELECT nombre_columna_1, nombre_columna_2, ...
+FROM nombre_tabla
+WHERE condicion
+```
+
+#### Operadores
+
+- Igual a =
+- Mayor que >
+- Mayor o igual que >=
+- Menor que <
+- Menor o igual que <=
+- Diferente a <>
+- Diferente a !=
+- Es nulo IS NULL
+- Entre dos valores BETWEEN
+- Lista de valores IN
+- Se ajusta a... LIKE
+
+Ejemplos:
+
+```SQL
+SELECT nombre, edad
+FROM usuarios
+WHERE edad > 17;
+```
+
+```SQL
+SELECT *
+FROM movies
+WHERE title LIKE 'Avatar';
+```
+
+```SQL
+SELECT *
+FROM movies
+WHERE awards >= 3 AND awards < 8;
+```
+
+```SQL
+SELECT *
+FROM movies
+WHERE awards = 2 OR awards = 6;
+```
+
+### Order by
+
+Se utiliza para ordenar los resultados de una consulta segun el valor de la columna especificada. Por defecto se ordena de forma ascendente (ASC). Para ordenarlo de forma descendiente (DESC) hay que aclararlo en la consulta.
+
+```SQL
+SELECT columna_1, columna_2, ...
+FROM tabla
+WHERE condicion
+ORDER BY columna_1
+```
+
+```SQL
+SELECT nombre, edad
+FROM usuarios
+WHERE edad > 21
+ORDER BY nombre DESC
+```
