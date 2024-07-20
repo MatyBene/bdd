@@ -323,3 +323,54 @@ FROM usuarios
 WHERE edad > 21
 ORDER BY nombre DESC
 ```
+
+## Between y like
+
+### Between
+
+Se utiliza cuando necesitamos obtener valores dentro de un rango.
+
+- Incluye los extremos
+- Funciona con numeros, textos y fechas
+- Se usa como un filtro de un WHERE
+
+Ejemplo:
+
+```SQL
+SELECT nombre, edad
+FROM alumnos
+WHERE edad BETWEEN 6 AND 12
+```
+
+### Like
+
+Cuando hacemos un filtro con un WHERE, podemos especificar un patron de busqueda que nos permita especificar algo en concreto que queremos encontrar en los registros. Eso lo logramos utilizando comodines (wildcards).
+
+- Comodin %: Es un sustituto que representa cero, uno, o varios caracteres.
+- Comodin \_: Es un sustituto para un solo caracter.
+
+Ejemplos:
+
+Devuelve aquellos nombres que tengan la letra 'a' como segundo caracter.
+
+```SQL
+SELECT nombre
+FROM usuarios
+WHERE edad LIKE '_a%'
+```
+
+Devuelve las direcciones de los usuarios que incluyan la calle 'Monroe'.
+
+```SQL
+SELECT nombre
+FROM usuarios
+WHERE direccion LIKE 'Monroe'
+```
+
+Devuelve los clientes que empiecen con 'Los' y terminen con 's'.
+
+```SQL
+SELECT nombre
+FROM clientes
+WHERE nombre LIKE 'Los%s'
+```
