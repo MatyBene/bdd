@@ -237,3 +237,19 @@ DELETE FROM nombre_tabla WHERE condicion;
 ```SQL
 DELETE FROM usuarios WHERE usuario_id = 4;
 ```
+
+## Select
+
+Su funcionalidad es la de realizar consultas sobre una o varias columnas de una tabla. Para especificar sobre que tabla queremos realizar esa consulta usamos la palabra clave FROM seguida del nombre de la tabla.
+
+```SQL
+SELECT nombre_columna_1, nombre_columna_2, ...
+FROM nombre_tabla
+```
+
+Ejemplo: Para conocer los titulos y ratings de las peliculas guardadas en la tabla peliculas.
+
+```SQL
+SELECT titulo, rating
+FROM peliculas
+```
