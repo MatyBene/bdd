@@ -374,3 +374,30 @@ SELECT nombre
 FROM clientes
 WHERE nombre LIKE 'Los%s'
 ```
+
+## Limit y offset
+
+### Limit
+
+Su funcionalidad es la de limitar el numero de fila devueltas en las consultas SELECT. Tambien establece el numero maximo de registros a eliminar con DELETE.
+
+```SQL
+SELECT columna_1, columna_2, ...
+FROM tabla
+LIMIT cantidad_de_registros
+```
+
+### Offset
+
+Nos permite especificar a partir de que fila comenzat en la recuperacion de los datos solicitados.
+
+Ejemplo:
+
+Con el OFFSET 20 desplazamos los resultados 20 posiciones para que se muestre desde la posicion 21.
+
+```SQL
+SELECT id, nombre, apellido
+FROM alumnos
+LIMIT 20
+OFFSET 20
+```
