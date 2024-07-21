@@ -401,3 +401,26 @@ FROM alumnos
 LIMIT 20
 OFFSET 20
 ```
+
+## Alias
+
+Se usan para darle un nombre temporal a las tablas, columnas y funciones. Se definen durante una consulta y persisten solo durante esa consulta. No modifican los nombres originales en la base de datos.
+
+```SQL
+SELECT columna_1 AS alias_columna_1
+FROM tabla
+```
+
+- Alias para una columna
+
+```SQL
+SELECT razon_social_cliente AS nombre
+FROM cliente
+```
+
+- Alias para una tabla
+
+```SQL
+SELECT nombre, apellido, edad
+FROM alumnos_comision_inicial AS alumnos
+```
