@@ -424,3 +424,93 @@ FROM cliente
 SELECT nombre, apellido, edad
 FROM alumnos_comision_inicial AS alumnos
 ```
+
+## Funciones de alteracion
+
+### Concat
+
+Se usa para concatenar dos o mas expresiones.
+
+Ejemplo: 'Nombre: Emilia Clerke'
+
+```SQL
+SELECT CONCAT('Nombre: ', fisrt_name, ' ', last_name)
+FROM actors
+```
+
+### Coalesce
+
+Se usa para obtener la primera expresion que no sea NULL.
+
+Ejemplo 1
+
+```SQL
+SELECT COALESCE(NULL, 1, 20, 'Digital house')
+```
+
+Ejemplo: Digital house
+
+```SQL
+SELECT COALESCE(NULL, NULL, 'Digital house')
+```
+
+### Datediff
+
+Se usa para devolver la diferencia (en dias) entre dos fechas.
+
+Ejemplo: devuelve 19
+
+```SQL
+SELECT DATEDIFF('2017/08/25', '2017/08/15')
+```
+
+### Extract
+
+Se usa para extraer partes de una fecha.
+
+SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR.
+
+Ejemplo: devuelve 21
+
+```SQL
+SELECT EXTRACT(SECOND FROM '2014-02-13 08:44:21')
+```
+
+### Replace
+
+Se usa para reemplazar una secuencia de caracteres por otra en un string.
+
+Ejemplo: Bbc Bbc
+
+```SQL
+SELECT REPLACE('abc abc', 'a', 'B')
+```
+
+### Date format
+
+Se usa para que dada una fecha determinada se pueda formatear la misma segun deseemos.
+
+Ejemplo: 'Thursday June 15 2017'
+
+```SQL
+SELECT DATE_FORMAT('2017-06-15', '%W %M %e %Y')
+```
+
+### Case
+
+Se usa para evaluar condiciones y devolver la primera que se cumpla.
+
+Ejemplo: La tabla resultante tendra 4 columnas: id, title, rating y rating_categories. Esta mostrara 'Mala', 'Regular', etc., segun el rating de la pelicula.
+
+```SQL
+SELECT
+  CASE
+    WHEN rating < 4 THEN 'Mala'
+    WHEN rating < 6 THEN 'Regular'
+    WHEN rating < 8 THEN 'Buena'
+    WHEN rating < 9.5 THEN 'Muy buena'
+    ELSE 'Excelente'
+  END AS rating_categories
+FROM movies
+ORDER BY rating
+```
