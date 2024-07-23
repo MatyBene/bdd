@@ -514,3 +514,58 @@ SELECT
 FROM movies
 ORDER BY rating
 ```
+
+# Uniones y funciones de agregacion
+
+## Joins
+
+Sirve para unir los resultados de consultas realizadas a distintas tablas.
+
+### Partes del inner join
+
+Ejemplo:
+
+```SQL
+SELECT usuarios.username, juegos.juegoname
+FROM usuarios
+INNER JOIN juegousuario ON usuarios.ID = juegousuario.ID_usuario
+INNER JOIN juegos ON juegosusuario.ID_juego = juegos.ID
+```
+
+```SQL
+INNER JOIN juegousuario ON usuarios.ID = juegousuario.ID_usuario
+```
+
+Aca se indica que sobre que tabla queremos que seleccione los dato. En el ON, indicamos el campo de nuestra tabla inicial con el campo que relaciona, y la tabla sobre la que vamos a combinar datos, con su campo relacionado. En este caso la ID en la tabla usuarios coincidira con ID_usuario, en la tabla juegousuario. En ese momento los campos de esa tabla que tengan coincidencias pasaran a poderse utilizar dentro de la consulta.
+
+### Inner join
+
+Hace el cruce entre dos tablas. Si cruzaramos las tablas de clientes y ventas y hubiese algun cliente sin ventas, el INNER JOIN no traeria a ese cliente como resultado.
+
+![INNER JOIN](/images/inner-join.png)
+
+#### Creando un inner join
+
+Antes escribiamos:
+
+```SQL
+SELECT clientes.id AS id, clientes.nombre, ventas.fecha
+FROM clientes, ventas
+```
+
+Ahora escribimos:
+
+```SQL
+SELECT clientes.id AS id, clientes.nombre, ventas.fecha
+FROM clientes
+INNER JOIN ventas
+```
+
+La sintaxis del join requiere de la palabra ON. Es ahi donde indicaremos el filtro a tener en cuenta para realizar el cruce.
+
+```SQL
+SELECT clientes.id AS id, clientes.nombre, ventas.fecha
+FROM clientes
+INNER JOIN ventas
+ON clientes.id = ventas.cliente_id
+```
