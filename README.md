@@ -569,3 +569,25 @@ FROM clientes
 INNER JOIN ventas
 ON clientes.id = ventas.cliente_id
 ```
+
+### Left join
+
+Incluira todos los registros de la primera tabla de la consulta (la tabla izquierda) incluso cuando no exista coincidencia con la tabla derecha.
+
+```SQL
+SELECT cliente.id AS id, clientes.nombre, ventas.fecha
+FROM clientes
+LEFT JOIN ventas
+ON clientes.id = ventas.cliente_id
+```
+
+### Right join
+
+Incluira todos los registros de la tabla derecha.
+
+```SQL
+SELECT clientes.id AS id, clientes.nombre, ventas.fecha
+FROM clientes
+RIGHT JOIN ventas
+ON clientes.id = ventas.cliente_id
+```
