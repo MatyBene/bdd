@@ -591,3 +591,33 @@ FROM clientes
 RIGHT JOIN ventas
 ON clientes.id = ventas.cliente_id
 ```
+
+### Cruzando muchas tablas
+
+```SQL
+SELECT clientes.id AS id, clientes.nombre, ventas.fecha
+FROM clientes
+INNER JOIN ventas
+ON clientes.id = ventas.cliente_id
+INNER JOIN productos
+ON productos.id = ventas.producto_id
+```
+
+## Distincs
+
+Nos devuelve valores unicos. Es decir, no aparecen los valores que estan repetidos en una misma columna.
+
+```SQL
+SELECT DISTINCT columna_1, columna_2
+FROM tabla
+```
+
+Ejemplo: Pide los actores que hayan actuado en cualquier pelicula de Harry Potter. Si no escribieramos el DISTINCT los actores que hayan participado en mas de una pelicula, apareceran repetidos en el resultado.
+
+```SQL
+SELECT DISTINCT actors.first_name, actors.last_name
+FROM actors
+INNER JOIN actor_movie ON actors.id = actor_movie.actor_id
+INNER JOIN movies ON movies.id = actor_movie.movie_id
+WHERE movies.title LIKE '%Harry Potter%'
+```
