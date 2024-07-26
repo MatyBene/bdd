@@ -621,3 +621,25 @@ INNER JOIN actor_movie ON actors.id = actor_movie.actor_id
 INNER JOIN movies ON movies.id = actor_movie.movie_id
 WHERE movies.title LIKE '%Harry Potter%'
 ```
+
+## Group by
+
+Se usa para agrupar los registros de la tabla resultante de una consulta por una o mas columnas.
+
+```SQL
+SELECT columna_1
+FROM tabla
+WHERE condicion
+GROUP BY columna_1
+```
+
+Perdemos detalle de cada una de las filas. Es decir, ya no nos interesa el valor de cada fila sino un resultado consolidado entre todas las filas.
+
+Ejemplo:
+
+```SQL
+SELECT genero.nombre, AVG(duracion)
+FROM peliculas
+INNER JOIN generos ON generos.id = genero_id
+GROUP BY genero.nombre
+```
