@@ -659,3 +659,39 @@ SELECT COUNT(id)
 FROM movies
 WHERE genre_id = 3
 ```
+
+### AVG
+
+Devolvera el promedio de una columna con valores numericos.
+
+```SQL
+SELECT AVG(rating)
+FROM movies
+```
+
+### SUM
+
+Devolvera la suma de una columna con valores numericos.
+
+```SQL
+SELECT SUM(length)
+FROM movies
+```
+
+### MIN
+
+Devolvera el valor minimo de una columna con valores numericos.
+
+```SQL
+SELECT MIN(rating)
+FROM movies
+```
+
+### MAX
+
+Devolvera el valor maximo de una columna.
+
+```SQL
+SELECT MAX(rating)
+FROM movies
+```
