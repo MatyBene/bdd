@@ -643,3 +643,19 @@ FROM peliculas
 INNER JOIN generos ON generos.id = genero_id
 GROUP BY genero.nombre
 ```
+
+## Funciones de agregacion
+
+Realizan calculos sobre un conjunto de datos y devuelven un unico resultado. Excepto COUNT, las funciones de agregacion ignoraran los valores NULL.
+
+### COUNT
+
+Devolvera la cantidad de filas/registros que cumplen con el criterio.
+
+Ejemplo: Devolvera la cantidad de peliculas de la tabla movies con el genero_id 3.
+
+```SQL
+SELECT COUNT(id)
+FROM movies
+WHERE genre_id = 3
+```
