@@ -695,3 +695,29 @@ Devolvera el valor maximo de una columna.
 SELECT MAX(rating)
 FROM movies
 ```
+
+## Having
+
+Cumple la misma funcion que WHERE, a diferencia de que HAVING se va a poder usar en conjunto con las funciones de agregacion para filtrar datos agregados.
+
+```SQL
+SELECT columna
+FROM tabla
+WHERE condicion
+GROUP BY columna
+HAVING condicion
+ORDER BY columna
+```
+
+Ejemplo: Esta consulta devolvera la cantidad de clientes por pais (agrupados por pais). Solamente se incluiran en el resultado aquellos paises qie tengan al menos 3 clientes.
+
+```SQL
+SELECT COUNT(cliente_id), pais
+FROM clientes
+GROUP BY pais
+HAVING COUNT(cliente_id) > 3
+```
+
+### Estructura de una query
+
+![Estructura de una query](/images/estructura-query.png)
