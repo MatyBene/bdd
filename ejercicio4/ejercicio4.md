@@ -30,4 +30,4 @@ Para esto, el encargado del club manifiesta que necesitaria almacenar los datos 
 4. Obtener la cantidad de participantes mujeres (sin importar categoria).
 5. Obtener el nombre y apellido de los inscriptos en la categoria "Caballeros B".
 6. Obtener los datos de los participantes (de cualquier genero) que tengan una edad entre 25 y 37 años.
-7. Obtener la lista completa de inscripciones, especificando nombre y apellido de cada uno de los inscriptos, sin diferenciar categoria.
+7. Obtener la lista completa de inscripciones, especificando nombre y apellido (y ademas los datos de la incripcion) de cada uno de los inscriptos, sin diferenciar categoria.

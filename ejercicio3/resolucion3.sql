@@ -12,7 +12,7 @@ CREATE TABLE Tratamientos(
     id_tratamiento INT AUTO_INCREMENT PRIMARY KEY,
     tipo VARCHAR(45),
     fecha DATE,
-    FOREIGN key (id_paciente) REFERENCES Pacientes(id_paciente)
+    FOREIGN KEY (id_paciente) REFERENCES Pacientes(id_paciente)
 );
 
 INSERT INTO Pacientes (nombre, fecha_nacimiento, especie) VALUES
