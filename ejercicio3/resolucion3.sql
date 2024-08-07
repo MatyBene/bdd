@@ -1,4 +1,4 @@
-CREATE TABLE veterinaria;
+CREATE DATABASE veterinaria;
 USE veterinaria;
 
 CREATE TABLE Pacientes(
